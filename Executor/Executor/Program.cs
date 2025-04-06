@@ -61,6 +61,7 @@ namespace Executor
                     // It's a batch script, execute it with CMD.
                     processInfo = new ProcessStartInfo("cmd.exe", "/c " + pPath);
                     processInfo.CreateNoWindow = true;
+                    processInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     processInfo.UseShellExecute = true; // Do not wait - make the process stand alone
                     process = Process.Start(processInfo);
                 }
@@ -71,6 +72,7 @@ namespace Executor
                     processInfo = new ProcessStartInfo("powershell.exe", scriptArguments);
 
                     processInfo.CreateNoWindow = true;
+                    processInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     processInfo.UseShellExecute = true; // Do not wait - make the process stand alone
                     process = Process.Start(processInfo);;
                 }
